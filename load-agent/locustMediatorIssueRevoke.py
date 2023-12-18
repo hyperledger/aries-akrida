@@ -21,6 +21,10 @@ class UserBehaviour(SequentialTaskSet):
         self.client.startup(withMediation=bool(WITH_MEDIATION))
 
     def on_stop(self):
+        try:
+            self.client.issuer_cleanup(self.invite["connection_id"])
+        except Exception as e:
+            raise Exception(f"Failed cleaning up connections on issuer side: {str(e)}")
         self.client.shutdown()
 
     @task
@@ -46,6 +50,10 @@ class UserBehaviour(SequentialTaskSet):
         self.client.ensure_is_running()
 
         self.client.revoke_credential(self.credential)
+
+    @task
+    def issuer_cleanup(self):
+        self.client.issuer_cleanup(self.invite["connection_id"])
 
 class IssueRevoke(CustomLocust):
     tasks = [UserBehaviour]
