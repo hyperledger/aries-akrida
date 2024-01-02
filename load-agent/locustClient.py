@@ -30,7 +30,7 @@ MESSAGE_TO_SEND = os.getenv("MESSAGE_TO_SEND", "ping")
 ISSUER_TYPE = os.getenv("ISSUER_TYPE", "acapy")
 VERIFIER_TYPE = os.getenv("VERIFIER_TYPE", "acapy")
 
-OOB_INVITE = os.getenv("OOB_INVITE", False).lower() in ('true', '1', 't')
+OOB_INVITE = bool(os.getenv("OOB_INVITE", False))
 
 class PortManager:
     def __init__(self):
