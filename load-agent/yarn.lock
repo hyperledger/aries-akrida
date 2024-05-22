@@ -155,20 +155,20 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@hyperledger/aries-askar-react-native@^0.1.0":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@hyperledger/aries-askar-react-native/-/aries-askar-react-native-0.1.1.tgz#1108a9b815b53eae9d04341c17be2f2b7ff2d3be"
-  integrity sha512-e9E4CYf54J1RJetK9g64vHoIcVjlU8CnKB83/01aXliLY52Yrg2ad42MJFva29z8SghFFgpCXRGMUuQ9OiwBfA==
+"@hyperledger/aries-askar-react-native@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@hyperledger/aries-askar-react-native/-/aries-askar-react-native-0.2.1.tgz#e21f318ba1996caa308200a3cdcef57c0626eafd"
+  integrity sha512-dyMBQoFQVZJAPJ/2Fjfy/bumpn2tcM+bsVau9olrDkzZNqYxyeD3nzIsE9Xwnx9mVs1ElsucRdoTwtDK68GsGA==
   dependencies:
-    "@hyperledger/aries-askar-shared" "0.1.1"
+    "@hyperledger/aries-askar-shared" "0.2.1"
     "@mapbox/node-pre-gyp" "^1.0.10"
 
-"@hyperledger/aries-askar-shared@0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@hyperledger/aries-askar-shared/-/aries-askar-shared-0.1.1.tgz#bdb34ad718e988db5a47d540fd22ba2c7a86a1d3"
-  integrity sha512-9jJSgqHt29JEuQ/tBzHmhWaSLyTyw/t7H+Ell/YSHtL9DE0KN0Ew/vuXoDqlt117+EBeQTDKG0hy0ov8K41rmw==
+"@hyperledger/aries-askar-shared@0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@hyperledger/aries-askar-shared/-/aries-askar-shared-0.2.1.tgz#0c01abe47fd53dd1629ee41af51c9d9d42f7f86f"
+  integrity sha512-7d8tiqq27dxFl7+0Cf2I40IzzDoRU9aEolyPyvfdLGbco6NAtWB4CV8AzgY11EZ7/ou4RirJxfP9hBjgYBo1Ag==
   dependencies:
-    fast-text-encoding "^1.0.3"
+    buffer "^6.0.3"
 
 "@mapbox/node-pre-gyp@^1.0.10":
   version "1.0.11"
@@ -580,21 +580,6 @@ base-64@^0.1.0:
   resolved "https://registry.yarnpkg.com/base-64/-/base-64-0.1.0.tgz#780a99c84e7d600260361511c4877613bf24f6bb"
   integrity sha512-Y5gU45svrR5tI2Vt/X9GPd3L0HNIKzGu202EjxrXMpuc2V2CiKgemAbUUsqYmZJvPtCXoUKjNZwBJzsNScUbXA==
 
-base-x@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/base-x/-/base-x-4.0.0.tgz#d0e3b7753450c73f8ad2389b5c018a4af7b2224a"
-  integrity sha512-FuwxlW4H5kh37X/oW59pwTzzTKRzfrrQwhmyspRM7swOEZcHtDZSCt45U6oKgtuFE+WYPblePMVIPR4RZrh/hw==
-
-base58-js@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/base58-js/-/base58-js-2.0.0.tgz#926eb9cefcdeb9fe265294a0a7a18b98717e2b70"
-  integrity sha512-nAV5d32QXuGcGptSApkKpC1gGakWBnfJMNjKrYTBh4tb0szfZF+ooueFLy8T4VrY+o4SrE/TyrtUnRZcwZchaA==
-
-base58@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/base58/-/base58-2.0.1.tgz#e208f00c04ad38d680d76a11c5fa096abfb86b12"
-  integrity sha512-qK6gt2fMSxN2xGOi+btI5oAnXL+vEq0AsHWHhf5jfm2hE6MwmW+2414qF96utV3Xfg3En8hEA9Q4lif4lbXcgw==
-
 base64-js@*, base64-js@^1.3.0, base64-js@^1.3.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
@@ -667,13 +652,6 @@ braces@^3.0.2:
   integrity sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==
   dependencies:
     fill-range "^7.0.1"
-
-bs58@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/bs58/-/bs58-5.0.0.tgz#865575b4d13c09ea2a84622df6c8cbeb54ffc279"
-  integrity sha512-r+ihvQJvahgYT50JD05dyJNKlmmSlMoOGwn1lCcEzanPglg7TxYjioQUYehQ9mAR/+hOSd2jRc/Z2y5UxBymvQ==
-  dependencies:
-    base-x "^4.0.0"
 
 buffer@^6.0.0, buffer@^6.0.2, buffer@^6.0.3:
   version "6.0.3"
