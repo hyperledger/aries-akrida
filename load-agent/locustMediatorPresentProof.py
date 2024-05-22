@@ -21,6 +21,16 @@ class UserBehaviour(SequentialTaskSet):
         self.client.startup(withMediation=bool(WITH_MEDIATION))
 
     def on_stop(self):
+        try:
+            self.client.issuer_cleanup(self.invite["connection_id"])
+        except Exception as e:
+            raise Exception(f"Failed cleaning up connections on issuer side: {str(e)}")
+
+        try:
+            self.client.verifier_cleanup(self.verifier_invite["connection_id"])
+        except Exception as e:
+            raise Exception(f"Failed cleaning up connections on verifier side: {str(e)}")
+
         self.client.shutdown()
 
     @task
@@ -59,6 +69,14 @@ class UserBehaviour(SequentialTaskSet):
 
         # Need connection id
         presentation = self.client.presentation_exchange(self.verifier_invite['connection_id'])
+
+    @task
+    def issuer_cleanup(self):
+        self.client.issuer_cleanup(self.invite["connection_id"])
+
+    @task
+    def verifier_cleanup(self):
+        self.client.verifier_cleanup(self.verifier_invite["connection_id"])
 
 
 class Issue(CustomLocust):

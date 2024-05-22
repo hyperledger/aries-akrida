@@ -202,3 +202,15 @@ class AcapyVerifier(BaseVerifier):
                         headers=headers,
                 )
                 r = r.json()
+
+        def clean_up(self, connection_id):
+            headers = json.loads(os.getenv("VERIFIER_HEADERS"))
+            headers["Content-Type"] = "application/json"
+            # Hit delete endpoint with self.invite['connection_id']
+            d = requests.delete(
+                os.getenv("VERIFIER_URL") + f"/connections/{connection_id}",
+                json={"conn_id": connection_id},
+                headers=headers,
+            )
+            if d.status_code != 200:
+                raise Exception(d.content)
