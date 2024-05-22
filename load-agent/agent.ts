@@ -7,17 +7,13 @@ import {
 } from '@aries-framework/anoncreds';
 
 import {
-  IndySdkAnonCredsRegistry, 
-  IndySdkModule, 
   IndySdkIndyDidRegistrar, 
   IndySdkSovDidResolver, 
   IndySdkIndyDidResolver
 } from '@aries-framework/indy-sdk'
 
-var indySdk = require('indy-sdk')
-
-// import { ariesAskar } from '@hyperledger/aries-askar-react-native'
-// import { AskarModule } from '@aries-framework/askar'
+import { AskarModule } from '@aries-framework/askar'
+import { ariesAskar } from '@hyperledger/aries-askar-nodejs'
 
 import {
   Agent, 
@@ -49,6 +45,11 @@ import {
   agentDependencies, 
   HttpInboundTransport 
 } from '@aries-framework/node';
+
+import { AnonCredsRsModule } from '@aries-framework/anoncreds-rs'
+import { anoncreds } from '@hyperledger/anoncreds-nodejs'
+import { IndyVdrAnonCredsRegistry, IndyVdrModule } from '@aries-framework/indy-vdr'
+import { indyVdr } from '@hyperledger/indy-vdr-nodejs'
 
 var config = require('./config.js')
 
@@ -95,20 +96,23 @@ const initializeAgent = async (withMediation, port, agentConfig = null) => {
   }
 
   let modules = {
-    indySdk: new IndySdkModule({
-      indySdk,
-      networks: [config.ledger]
+    askar: new AskarModule({
+      ariesAskar,
     }),
-    // askar: new AskarModule({
-    //   ariesAskar,
-    // }),
     mediationRecipient: new MediationRecipientModule({
       mediatorInvitationUrl: mediation_url,
 //      mediatorPickupStrategy: MediatorPickupStrategy.PickUpV2,
       mediatorPickupStrategy: MediatorPickupStrategy.Implicit,
     }),
+    anoncredsRs: new AnonCredsRsModule({
+      anoncreds,
+    }),
+    indyVdr: new IndyVdrModule({
+      indyVdr,
+      networks: [config.ledger]
+    }),
     anoncreds: new AnonCredsModule({
-      registries: [new IndySdkAnonCredsRegistry()],
+      registries: [new IndyVdrAnonCredsRegistry()],
     }),
     proofs: new ProofsModule({
       proofProtocols: [
@@ -550,6 +554,7 @@ rl.setPrompt('')
 rl.prompt(false)
 
 const handleError = async (e) => {
+  throw e;
   process.stdout.write(JSON.stringify({ error: 1, result: e }) + '\n')
 }
 
