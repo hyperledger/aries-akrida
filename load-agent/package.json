@@ -21,7 +21,7 @@
     "indy-sdk": "^1.16.0-dev-1655",
     "indy-sdk-react-native": "^0.3.1",
     "log-buffer": "^0.0.3",
-    "typescript": "^5.2.2"
+    "typescript": "^5.5.2"
   },
   "devDependencies": {
     "@types/indy-sdk-react-native": "npm:@types/indy-sdk"
