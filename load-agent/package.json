@@ -17,7 +17,7 @@
     "@aries-framework/react-native": "^0.4.0",
     "@hyperledger/aries-askar-react-native": "^0.1.0",
     "deferred": "^0.7.11",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.4.5",
     "indy-sdk": "^1.16.0-dev-1655",
     "indy-sdk-react-native": "^0.3.1",
     "log-buffer": "^0.0.3",
