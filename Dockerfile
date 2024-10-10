@@ -1,5 +1,5 @@
 #FROM ubuntu:20.04 as base
-FROM docker.io/node:18.19.1-bullseye as base
+FROM docker.io/node:22.9.0-bullseye as base
 
 ARG LOADDIR="/load-agent"
 
