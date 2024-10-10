@@ -10,7 +10,7 @@ python = "^3.9"
 acapy-cache-redis = {git = "https://github.com/Indicio-tech/aries-acapy-cache-redis.git"}
 aries-askar = "^0.3"
 indy-vdr = "^0.4"
-aries-cloudagent = {version = "0.12.1", extras = ["askar", "bbs"]}
+aries-cloudagent = {version = "0.12.2", extras = ["askar", "bbs"]}
 
 
 [build-system]
