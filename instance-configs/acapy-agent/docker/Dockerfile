@@ -1,6 +1,6 @@
 #FROM ghcr.io/hyperledger/aries-cloudagent-python:py3.9-indy-1.16.0-0.8.2
 #bcgovimages/von-image:py36-1.16-1
-FROM ghcr.io/hyperledger/aries-cloudagent-python:py3.9-indy-1.16.0-0.12.1
+FROM ghcr.io/hyperledger/aries-cloudagent-python:py3.9-indy-1.16.0-0.12.2
 
 USER root
 ENV POETRY_HOME=/opt/poetry \
