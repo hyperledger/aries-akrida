@@ -25,7 +25,7 @@
     "log-buffer": "^0.0.3",
     "ref-array-di": "^1.2.2",
     "ref-napi": "^3.0.3",
-    "typescript": "^5.6.3"
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@types/node": "^18.19.130"
