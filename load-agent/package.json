@@ -20,7 +20,7 @@
     "@hyperledger/indy-vdr-nodejs": "0.2.2",
     "@veramo/core": "^6.0.0",
     "deferred": "^0.7.11",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.6.1",
     "jose": "^6.1.0",
     "log-buffer": "^0.0.3",
     "ref-array-di": "^1.2.2",

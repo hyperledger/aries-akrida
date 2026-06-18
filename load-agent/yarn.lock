@@ -2166,10 +2166,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.0.3":
-  version: 16.4.7
-  resolution: "dotenv@npm:16.4.7"
-  checksum: 10c0/be9f597e36a8daf834452daa1f4cc30e5375a5968f98f46d89b16b983c567398a330580c88395069a77473943c06b877d1ca25b4afafcdd6d4adb549e8293462
+"dotenv@npm:^16.6.1":
+  version: 16.6.1
+  resolution: "dotenv@npm:16.6.1"
+  checksum: 10c0/15ce56608326ea0d1d9414a5c8ee6dcf0fffc79d2c16422b4ac2268e7e2d76ff5a572d37ffe747c377de12005f14b3cc22361e79fc7f1061cce81f77d2c973dc
   languageName: node
   linkType: hard
 
@@ -3243,7 +3243,7 @@ __metadata:
     "@types/node": "npm:^18.19.130"
     "@veramo/core": "npm:^6.0.0"
     deferred: "npm:^0.7.11"
-    dotenv: "npm:^16.0.3"
+    dotenv: "npm:^16.6.1"
     jose: "npm:^6.1.0"
     log-buffer: "npm:^0.0.3"
     ref-array-di: "npm:^1.2.2"
