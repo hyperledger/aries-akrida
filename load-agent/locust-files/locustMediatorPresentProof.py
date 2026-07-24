@@ -26,9 +26,7 @@ class UserBehaviour(ConnectionUserBehaviour):
     def accept_verifier_invite(self):
         self.client.ensure_is_running()
 
-        verifier_connection = self.client.accept_invite(
-            self.verifier_invite["invitation_url"]
-        )
+        verifier_connection = self.client.accept_invite(self.verifier_invite["invitation_url"])
         if verifier_connection is not None:
             self.verifier_connection = verifier_connection
 

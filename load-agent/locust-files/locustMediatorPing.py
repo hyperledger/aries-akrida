@@ -4,12 +4,12 @@ from constants import standard_wait
 from locust import TaskSet, task
 from locustCustom import CustomLocust
 
-WITH_MEDIATION = os.getenv("WITH_MEDIATION")
+WITH_MEDIATION = os.getenv("WITH_MEDIATION", "false").lower() in ("true", "1", "yes")
 
 
 class UserBehaviour(TaskSet):
     def on_start(self):
-        self.client.startup(withMediation=bool(WITH_MEDIATION))
+        self.client.startup(with_mediation=WITH_MEDIATION)
 
     def on_stop(self):
         self.client.shutdown()

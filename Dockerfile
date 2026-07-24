@@ -19,7 +19,7 @@ RUN apt-get update -y && apt-get install -y \
     libsodium-dev libzmq3-dev python3-pip tmux htop
 
 RUN corepack enable
-RUN corepack prepare yarn@stable --activate
+RUN corepack prepare yarn@4.10.3 --activate
 
 # Rust / Indy setup
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -34,8 +34,12 @@ COPY pyproject.toml ./
 COPY pdm.lock ./
 RUN pdm sync --no-self
 
-# App code
+# JS agent dependencies (cached separately)
 WORKDIR ${LOADDIR}
+COPY ./load-agent/package.json ./load-agent/yarn.lock ./load-agent/.yarnrc.yml ./
+RUN yarn install
+
+# App code
 ADD ./load-agent ${LOADDIR}/
 
 # Conditionally copy vdr proxy code
@@ -46,7 +50,6 @@ RUN if [ "$INCLUDE_VDR" = "true" ]; then \
     fi
 
 # Build JS agent
-RUN yarn install
 RUN yarn tsc
 
 # Default command

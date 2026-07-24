@@ -26,9 +26,7 @@ class UserBehaviour(ConnectionUserBehaviour):
     def accept_verifier_invite(self):
         self.client.ensure_is_running()
 
-        verifier_connection = self.client.accept_invite(
-            self.verifier_invite["invitation_url"]
-        )
+        verifier_connection = self.client.accept_invite(self.verifier_invite["invitation_url"])
         if verifier_connection is not None:
             self.verifier_connection = verifier_connection
 
@@ -44,16 +42,14 @@ class UserBehaviour(ConnectionUserBehaviour):
             restart = False
 
             try:
-                presentation = self.client.presentation_exchange(
-                    self.verifier_invite["connection_id"]
-                )
+                presentation = self.client.presentation_exchange(self.verifier_invite["connection_id"])
                 presentation_not_complete = False
             except AssertionError as e:
                 if "JSONDecodeError" in presentation["result"]:
                     restart = True
                     pass
                 else:
-                    raise AssertionError("Error is : ", e)
+                    raise AssertionError("Error is : ", e) from e
 
 
 class Issue(CustomLocust):

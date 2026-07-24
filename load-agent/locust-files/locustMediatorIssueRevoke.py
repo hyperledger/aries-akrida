@@ -16,9 +16,7 @@ class UserBehaviour(ConnectionUserBehaviour):
         self.client.ensure_is_running()
 
         for invite in self.invites:
-            self.credentials.append(
-                self.client.receive_credential(invite["connection_id"])
-            )
+            self.credentials.append(self.client.receive_credential(invite["connection_id"]))
             time.sleep(deviation_wait())
 
     @task

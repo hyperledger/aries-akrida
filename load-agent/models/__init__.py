@@ -21,7 +21,7 @@ __all__ = [
     "CredentialProposalV1",
     "Filter",
     "IndyFilter",
-    "IndyPresReq"
+    "IndyPresReq",
     "IssueCredentialV1",
     "IssueCredentialV2",
     "ProofRequest",

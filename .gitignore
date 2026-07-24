@@ -1,6 +1,7 @@
-
+load-agent/.yarn/
 load-agent/node_modules
 load-agent/__pycache__
+load-agent/dist/
 load-vdr-proxy/__pycache__
 .env
 aries-framework-javascript

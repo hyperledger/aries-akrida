@@ -13,21 +13,22 @@ from models import (
 )
 from settings import Settings
 
+from ..base_acapy import BaseAcapyAgent
 from .base import BaseIssuer
 
 
-class AcapyIssuer(BaseIssuer):
+class AcapyIssuer(BaseIssuer, BaseAcapyAgent):
     def __init__(self):
         super().__init__()
         if Settings.IS_ANONCREDS:
-            self.filter = AnonCredsFilter(anoncreds=Filter(cred_def_id=self.cred_def_id))
+            self.filter = AnonCredsFilter(anoncreds=Filter(cred_def_id=self.cred_def_id, schema_id=self.schema_id))
             self.revoke_endpoint = "/anoncreds/revocation/revoke"
         else:
             self.revoke_endpoint = "/revocation/revoke"
-            self.filter = IndyFilter(indy=Filter(cred_def_id=self.cred_def_id))
+            self.filter = IndyFilter(indy=Filter(cred_def_id=self.cred_def_id, schema_id=self.schema_id))
 
     def issue_credential(self, connection_id):
-                
+
         r = requests.post(
             f"{self.agent_url}/issue-credential-2.0/send",
             headers=self.headers,

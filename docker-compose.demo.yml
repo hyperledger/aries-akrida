@@ -49,7 +49,7 @@ services:
     volumes:
       - ./instance-configs/acapy-agent/configs:/home/aries/configs:ro,z
     ports:
-      - "8150:8150"
+      - "127.0.0.1:8150:8150"
       - "8151:8151"
     environment:
       ACAPY_ADMIN_API_KEY: ""

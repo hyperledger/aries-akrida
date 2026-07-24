@@ -1,6 +1,6 @@
-import pytest
 from unittest.mock import MagicMock
 
+import pytest
 from locustMediatorPing import UserBehaviour
 
 
@@ -38,17 +38,20 @@ class TestUserBehaviour:
 
 
 class TestBoolConversion:
-    @pytest.mark.parametrize("value,expected", [
-        ("", False),
-        ("0", True),
-        ("false", True),
-        ("False", True),
-        ("FALSE", True),
-        ("true", True),
-        ("1", True),
-        ("True", True),
-        ("TRUE", True),
-        ("yes", True),
-    ])
+    @pytest.mark.parametrize(
+        "value,expected",
+        [
+            ("", False),
+            ("0", True),
+            ("false", True),
+            ("False", True),
+            ("FALSE", True),
+            ("true", True),
+            ("1", True),
+            ("True", True),
+            ("TRUE", True),
+            ("yes", True),
+        ],
+    )
     def test_bool_conversion(self, value, expected):
         assert bool(value) == expected

@@ -15,7 +15,7 @@
     "@credo-ts/indy-vdr": "0.5.17",
     "@credo-ts/node": "0.5.17",
     "@credo-ts/react-native": "0.5.17",
-    "@hyperledger/anoncreds-nodejs": "0.2.2",
+    "@hyperledger/anoncreds-nodejs": "0.3.4",
     "@hyperledger/aries-askar-nodejs": "0.2.3",
     "@hyperledger/indy-vdr-nodejs": "0.2.2",
     "@veramo/core": "^6.0.0",

@@ -6,6 +6,14 @@ from ..base import BaseAgent
 
 
 class BaseIssuer(BaseAgent):
+    """
+    Base class for a credential issuer agent.
+
+    Issuer agents create and send credentials to holders. They define the
+    schema and credential definition that determines what attributes are
+    included in the credential.
+    """
+
     def __init__(self):
         super().__init__()
         self.label = "Test Issuer"
@@ -17,9 +25,19 @@ class BaseIssuer(BaseAgent):
 
     @abstractmethod
     def issue_credential(self, connection_id):
-        raise NotImplementedError
+        """
+        Issues a credential to a connected holder.
+
+        Args:
+            connection_id (str): The established connection ID with the holder.
+        """
 
     @abstractmethod
     def revoke_credential(self, connection_id, credential_exchange_id):
-        raise NotImplementedError
+        """
+        Revokes a previously issued credential.
 
+        Args:
+            connection_id (str): The connection ID of the holder.
+            credential_exchange_id (str): The credential exchange ID to revoke.
+        """

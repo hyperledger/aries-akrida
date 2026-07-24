@@ -6,7 +6,7 @@ from locust import task
 from locustConnection import ConnectionUserBehaviour
 from locustCustom import CustomLocust
 
-WITH_MEDIATION = os.getenv("WITH_MEDIATION")
+WITH_MEDIATION = os.getenv("WITH_MEDIATION", "false").lower() in ("true", "1", "yes")
 
 
 class UserBehaviour(ConnectionUserBehaviour):

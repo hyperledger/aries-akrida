@@ -653,24 +653,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hyperledger/anoncreds-nodejs@npm:0.2.2":
-  version: 0.2.2
-  resolution: "@hyperledger/anoncreds-nodejs@npm:0.2.2"
+"@hyperledger/anoncreds-nodejs@npm:0.3.4":
+  version: 0.3.4
+  resolution: "@hyperledger/anoncreds-nodejs@npm:0.3.4"
   dependencies:
     "@2060.io/ffi-napi": "npm:^4.0.9"
     "@2060.io/ref-napi": "npm:^3.0.6"
-    "@hyperledger/anoncreds-shared": "npm:0.2.2"
-    "@mapbox/node-pre-gyp": "npm:^1.0.11"
+    "@hyperledger/anoncreds-shared": "npm:0.3.4"
     ref-array-di: "npm:1.2.2"
     ref-struct-di: "npm:1.1.1"
-  checksum: 10c0/f23a4373af3663a1c21b39e5c8a9f4103c3a6aa778a3f46bc08ba42a62fc5a969c3f9a66a22098909490b414d3ff1f23f74c320fcc1fa83d7eb27c34ada84d6d
+  checksum: 10c0/76ccdb0bd0e464af2782f794e75f95298f2c5934542b76650025b3e34afeddcc7c4841106a8424a5f8f270e76d82f6a460bcdafc1f6f53713177db053d6c0423
   languageName: node
   linkType: hard
 
-"@hyperledger/anoncreds-shared@npm:0.2.2":
-  version: 0.2.2
-  resolution: "@hyperledger/anoncreds-shared@npm:0.2.2"
-  checksum: 10c0/ef526d75a9c57e03560fa4a9a639f09d5afa6e2856b1ca08032dc27b3b406130476df0d7abbcea169b2eacfe6164ada8f9c73a511340c3d3d54c47e08a098ae5
+"@hyperledger/anoncreds-shared@npm:0.3.4":
+  version: 0.3.4
+  resolution: "@hyperledger/anoncreds-shared@npm:0.3.4"
+  dependencies:
+    tar: "npm:^7.4.3"
+  checksum: 10c0/9c13ad6080cbef64821406fa414b6a9596c3131fb1677ba46123b1fa70d0216aae5f2658d09a4cd25550efbc1a109e462cdfca55f9639a0c618a65cb6cab0810
   languageName: node
   linkType: hard
 
@@ -3237,7 +3238,7 @@ __metadata:
     "@credo-ts/indy-vdr": "npm:0.5.17"
     "@credo-ts/node": "npm:0.5.17"
     "@credo-ts/react-native": "npm:0.5.17"
-    "@hyperledger/anoncreds-nodejs": "npm:0.2.2"
+    "@hyperledger/anoncreds-nodejs": "npm:0.3.4"
     "@hyperledger/aries-askar-nodejs": "npm:0.2.3"
     "@hyperledger/indy-vdr-nodejs": "npm:0.2.2"
     "@types/node": "npm:^18.19.130"

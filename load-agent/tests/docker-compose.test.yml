@@ -1,0 +1,54 @@
+version: "3"
+
+services:
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    volumes:
+      - ./load-agent:/app/load-agent
+    environment:
+      - TEST_ACAPY_ADMIN_API_KEY=${TEST_ACAPY_ADMIN_API_KEY:-}
+      - PYTHONPATH=/app/load-agent
+    depends_on:
+      - acapy-issuer
+      - acapy-holder
+    command: pytest tests/integration -v --use-docker --use-real-ledger -m integration
+
+  acapy-issuer:
+    image: ghcr.io/hyperledger/aries-cloudagent-python:py3.10-latest
+    environment:
+      - ACAPY_WALLET_NAME=test-issuer
+      - ACAPY_WALLET_KEY=test-wallet-key-32-characters-long
+      - ACAPY_WALLET_TYPE=askar
+      - ACAPY_GENESIS_URL=https://raw.githubusercontent.com/Indicio-tech/indicio-network/main/genesis_files/pool_transactions_testnet_genesis
+      - ACAPY_ADMIN_INSECURE_MODE=true
+      - ACAPY_LABEL=test-issuer
+      - ACAPY_AUTO_ACCEPT_INVITES=true
+      - ACAPY_AUTO_ACCEPT_REQUESTS=true
+      - ACAPY_INBOUND_TRANSPORT=http,0.0.0.0,8151
+      - ACAPY_OUTBOUND_TRANSPORT=http
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:8150/status | grep -q 'connected'"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  acapy-holder:
+    image: ghcr.io/hyperledger/aries-cloudagent-python:py3.10-latest
+    environment:
+      - ACAPY_WALLET_NAME=test-holder
+      - ACAPY_WALLET_KEY=test-wallet-key-32-characters-long
+      - ACAPY_WALLET_TYPE=askar
+      - ACAPY_GENESIS_URL=https://raw.githubusercontent.com/Indicio-tech/indicio-network/main/genesis_files/pool_transactions_testnet_genesis
+      - ACAPY_ADMIN_INSECURE_MODE=true
+      - ACAPY_LABEL=test-holder
+      - ACAPY_AUTO_ACCEPT_INVITES=true
+      - ACAPY_AUTO_ACCEPT_REQUESTS=true
+      - ACAPY_INBOUND_TRANSPORT=http,0.0.0.0,8151
+      - ACAPY_OUTBOUND_TRANSPORT=http
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:8150/status | grep -q 'connected'"]
+      interval: 10s
+      timeout: 5s
+      retries: 30

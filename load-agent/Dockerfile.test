@@ -1,0 +1,16 @@
+FROM python:3.10-slim
+
+RUN apt-get update && apt-get install -y \
+    curl \
+    docker.io \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir \
+    pytest>=8.0.0 \
+    pytest-asyncio>=0.23.0 \
+    aiohttp>=3.9.0 \
+    requests>=2.31.0
+
+WORKDIR /app
+
+CMD ["pytest", "tests/integration", "-v", "--use-docker", "--use-real-ledger", "-m", "integration"]

@@ -1,15 +1,15 @@
-from typing import Any, Dict, Optional
+from typing import Any
 
 from pydantic import BaseModel, Field
 
 
 class BaseModel(BaseModel):
-    def model_dump(self, **kwargs) -> Dict[str, Any]:
+    def model_dump(self, **kwargs) -> dict[str, Any]:
         return super().model_dump(by_alias=True, exclude_none=True, **kwargs)
 
 
 class CredentialProposal(BaseModel):
-    type: str = Field('issue-credential/1.0/credential-preview', alias='@type')
+    type: str = Field("issue-credential/1.0/credential-preview", alias="@type")
     attributes: list = Field()
 
 
@@ -44,7 +44,7 @@ class RequestPresentation(BaseModel):
 
 
 class AnonCredsRevocation(BaseModel):
-    comment: Optional[str] = Field(default=None)
+    comment: str | None = Field(default=None)
     connection_id: str = Field()
     cred_ex_id: str = Field()
     notify: bool = Field(True)
